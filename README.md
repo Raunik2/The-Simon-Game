@@ -1,2 +1,2 @@
 # The-Simon-Game
-Simon game made by me
+A digital simon game made by me

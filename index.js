@@ -7,7 +7,7 @@
 
  $(document).keydown(function () {
      if (level === 0) {
-        $("h1").text("Press A Key to Start");
+         $("h1").text("Press A Key to Start");
          newsequence();
      }
  });
@@ -18,10 +18,24 @@
      $("h1").text("Level " + level);
      var rand = Math.floor(Math.random() * 4);
      var randchosencolor = colors[rand];
-     pattern.push(randchosencolor);
 
-     $('#' + randchosencolor).fadeIn(100).fadeOut(200).fadeIn(100);
-     playsound(randchosencolor);
+     pattern.push(randchosencolor);
+     var i=-1;
+
+    var bruh= setInterval(() => {
+
+        if(i===parent.length)clearInterval(bruh)
+
+       if(i!==-1){
+        $('#' + pattern[i]).fadeIn(100).fadeOut(200).fadeIn(100);
+        playsound(pattern[i]);
+       }
+        i++
+         
+     }, 400)();
+
+
+     //  $('#' + randchosencolor).fadeIn(100).fadeOut(200).fadeIn(100);
 
  }
 
@@ -62,6 +76,6 @@
  }
 
  function startover() {
-     level=0;
-     pattern=[];
+     level = 0;
+     pattern = [];
  }
